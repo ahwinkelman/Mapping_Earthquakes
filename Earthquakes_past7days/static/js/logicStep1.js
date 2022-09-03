@@ -26,9 +26,9 @@ let baseMaps = {
 
 // Create the map object with center and zoom level.
 let map = L.map('mapid',{
-  center:[43.7, -79.3],
-  zoom: 11,
-  layers: [satelliteStreets]
+  center:[39.5, -98.5],
+  zoom: 3,
+  layers: [streets]
 });
 
 
@@ -37,10 +37,10 @@ L.control.layers(baseMaps).addTo(map);
 
 
 // Accessing the airport GeoJSON URL
-let torontoHoods ="https://raw.githubusercontent.com/ahwinkelman/Mapping_Earthquakes/main/Mapping_GeoJSON_Polygons/torontoNeighborhoods%20-%20Copy.json";
+let earthQuakeData ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Grabbing our GeoJSON data.
-d3.json(torontoHoods).then(function(data) {
+d3.json(earthQuakeData).then(function(data) {
     console.log(data);
 // Create a style for the lines.
 L.geoJSON(data, {
